@@ -36,3 +36,13 @@
  :down-45-degrees
  (fn [db]
    (:down-45-degrees db)))
+
+(re-frame/reg-sub
+ :meter-settings
+ (fn [db]
+   (:meter-settings db)))
+
+(re-frame/reg-sub
+ :camera-settings
+ (fn [db]
+   (:camera-settings db)))
