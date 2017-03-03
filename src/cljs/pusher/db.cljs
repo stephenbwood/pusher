@@ -10,4 +10,10 @@
    :metered-speed 400
    :bulb-in false
    :shadow-side false
-   :down-45-degrees false})
+   :down-45-degrees false
+   :meter-settings {:speed 200
+                    :aperture 2.8
+                    :shutter (/ 1 60)}
+   :camera-settings {:speed 200
+                     :aperture 2.8
+                     :shutter (/ 1 60)}})
