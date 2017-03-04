@@ -8,7 +8,8 @@
         metered-speed (re-frame/subscribe [:metered-speed])
         bulb-in (re-frame/subscribe [:bulb-in])
         shadow-side (re-frame/subscribe [:shadow-side])
-        down-45-degrees (re-frame/subscribe [:down-45-degrees])]
+        down-45-degrees (re-frame/subscribe [:down-45-degrees])
+        speeds (re-frame/subscribe [:speeds])]
     (fn []
       [:div
        [:div.columns
@@ -17,7 +18,7 @@
           [:p.panel-heading "Film"]
           [:div.panel-block
            [:p.control
-            [:span.select.is-small
+            [:span.select.is-fullwidth
              [:select {:on-change #(re-frame/dispatch [:set-selected-film (.. % -target -value)])}
               (for [film @films]
                 [:option {:key (:name film)} (:name film)])]]]]
@@ -26,21 +27,25 @@
         [:div.column
          [:nav.panel
           [:p.panel-heading "Meter Settings"]
-          [:p.panel-block "I metered my film at:"
-           [:input {:type "number"
-                    :min "1"
-                    :max "12800"
-                    :value @metered-speed
-                    :on-change #(re-frame/dispatch [:set-metered-speed (.. % -target -value)])}]]
-          [:p.panel-block "Bulb In?"
+          [:p.panel-block
+           [:span.select.is-fullwidth
+            [:select {:value @metered-speed :on-change #(re-frame/dispatch [:set-metered-speed (.. % -target -value)])}
+             (for [speed @speeds]
+               [:option {:key speed
+                         :value speed}
+                (str speed " ISO")])]]]
+          [:p.panel-block
            [:input {:type "checkbox"
-                    :on-change #(re-frame/dispatch [:toggle-bulb-in])}]]
-          [:p.panel-block "Bulb 45 degrees down?"
+                    :on-change #(re-frame/dispatch [:toggle-bulb-in])}]
+           "Bulb In"]
+          [:p.panel-block
            [:input {:type "checkbox"
-                    :on-change #(re-frame/dispatch [:toggle-down-45-degrees])}]]
-          [:p.panel-block "Shadow side metering?"
+                    :on-change #(re-frame/dispatch [:toggle-down-45-degrees])}]
+           "Down 45 degrees"]
+          [:p.panel-block
            [:input {:type "checkbox"
-                    :on-change #(re-frame/dispatch [:toggle-shadow-side])}]]]]
+                    :on-change #(re-frame/dispatch [:toggle-shadow-side])}]
+           "Shadow Side"]]]
         [:div.column
          [:nav.panel
           [:p.panel-heading "Camera Settings"]]]]
