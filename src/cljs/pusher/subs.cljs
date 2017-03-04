@@ -46,3 +46,8 @@
  :camera-settings
  (fn [db]
    (:camera-settings db)))
+
+(re-frame/reg-sub
+ :speeds
+ (fn [db]
+   (:speeds db)))
