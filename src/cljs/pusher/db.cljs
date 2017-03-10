@@ -90,6 +90,23 @@
                {:f 27  :av 9.5}
                {:f 29  :av 9.7}
                {:f 32  :av 10}]
+   :shutter-speeds [{:name "8s" :value 8}
+                    {:name "4s" :value 4}
+                    {:name "2s" :value 2}
+                    {:name "1s" :value 1}
+                    {:name "1/2" :value (/ 1 2)}
+                    {:name "1/4" :value (/ 1 4)}
+                    {:name "1/8" :value (/ 1 8)}
+                    {:name "1/15" :value (/ 1 15)}
+                    {:name "1/30" :value (/ 1 30)}
+                    {:name "1/60" :value (/ 1 60)}
+                    {:name "1/125" :value (/ 1 125)}
+                    {:name "1/250" :value (/ 1 250)}
+                    {:name "1/500" :value (/ 1 500)}
+                    {:name "1/1000" :value (/ 1 1000)}
+                    {:name "1/2000" :value (/ 1 2000)}
+                    {:name "1/4000" :value (/ 1 4000)}
+                    {:name "1/8000" :value (/ 1 8000)}]
    :exposure-modes ["Manual" "Aperture" "Shutter" "Program"]
    :film-settings {:speed 26}
    :meter-settings {:speed 26
