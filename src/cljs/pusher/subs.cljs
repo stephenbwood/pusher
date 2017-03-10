@@ -36,3 +36,8 @@
  :exposure-modes
  (fn [db]
    (:exposure-modes db)))
+
+(re-frame/reg-sub
+ :shutter-speeds
+ (fn [db]
+   (:shutter-speeds db)))
